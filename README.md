@@ -8,6 +8,27 @@ This project simulates two common upstream sources:
 
 …and produces a single **Parquet metafile** (1 row per applicant) that can be queried using **SQL (DuckDB)** for risk analytics.
 
+**Why this matters:**  
+This project mirrors how real NBFC and fintech underwriting teams consolidate fragmented credit bureau and banking transaction data into a single, analytics-ready decisioning dataset.
+
+---
+## Pipeline Execution & Analytics
+
+### End-to-End Pipeline Run
+This shows the successful execution of the full credit risk data pipeline, generating an analytics-ready metafile.
+
+![Pipeline Run](screenshots/pipeline_run_output.png.jpeg)
+
+---
+
+### Risk Analytics & Credit Insights
+This shows downstream analytics derived from the metafile, including:
+- Risk band distribution
+- Average credit score vs delinquency
+- Top high-risk applicants
+
+![Risk Analytics](screenshots/risk_analytics_output.png.jpeg)
+
 ---
 
 ## What this project does
