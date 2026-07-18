@@ -1,0 +1,6 @@
+pandas>=2.0
+pyarrow>=14.0
+duckdb>=0.10
+rich>=13.0
+scikit-learn>=1.4
+joblib>=1.3

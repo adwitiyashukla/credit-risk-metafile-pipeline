@@ -33,7 +33,9 @@ def banking_features(tx_df: pd.DataFrame) -> pd.DataFrame:
 
     tx["is_salary"] = tx["txn_desc"].str.contains("salary", case=False, na=False).astype(int)
     tx["is_emi"] = tx["txn_desc"].str.contains("emi", case=False, na=False).astype(int)
-    tx["is_cash_withdrawal"] = tx["txn_desc"].str.contains("cash withdrawal", case=False, na=False).astype(int)
+    tx["is_cash_withdrawal"] = (
+        tx["txn_desc"].str.contains("cash withdrawal", case=False, na=False).astype(int)
+    )
 
     # amounts
     tx["credit_amt"] = tx["txn_amount"] * tx["is_credit"]
