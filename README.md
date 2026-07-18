@@ -150,9 +150,3 @@ Risk analytics on 2,000 scored applicants (`python -m src.main analytics`):
 ```
 
 Both the rule-based bands and the model PD rank-order observed defaults monotonically.
-
----
-
-## Disclaimer
-
-All data is synthetic and all policies/models are illustrative - this is a data engineering portfolio project, not a real credit policy.
