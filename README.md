@@ -4,7 +4,7 @@
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-An end-to-end **credit risk data pipeline** inspired by how fintech/NBFC underwriting teams build decisioning datasets ("**metafiles**") from **credit bureau** and **bank statement** data — including a trained **probability-of-default (PD) scoring model**.
+An end-to-end **credit risk data pipeline** inspired by how fintech/NBFC underwriting teams build decisioning datasets ("**metafiles**") from **credit bureau** and **bank statement** data - including a trained **probability-of-default (PD) scoring model**.
 
 ```text
 raw bureau JSON ─┐
@@ -22,9 +22,9 @@ raw banking JSON ┘                                          ▲
 ### 1) Synthetic data generation (data-lake style)
 Generates raw JSON per applicant, driven by a **latent risk factor** so that scores, delinquency, cash-flow behaviour and the observed default outcome are all *consistently correlated* (i.e., the data is learnable, not noise):
 
-- `data/raw/bureau/APPxxxxxx.json` — bureau report (score, trades, DPD; includes messy real-world values like `"DPD": "XXX"`)
-- `data/raw/banking/APPxxxxxx.json` — bank statement (monthly salary credits, EMIs, spending, coherent running balance)
-- `data/raw/labels.csv` — observed 12-month default flag per applicant (the ML target)
+- `data/raw/bureau/APPxxxxxx.json` - bureau report (score, trades, DPD; includes messy real-world values like `"DPD": "XXX"`)
+- `data/raw/banking/APPxxxxxx.json` - bank statement (monthly salary credits, EMIs, spending, coherent running balance)
+- `data/raw/labels.csv` - observed 12-month default flag per applicant (the ML target)
 
 Generation is **deterministic per applicant** (seeded), so runs are reproducible and interrupted generations can be resumed with `--start`.
 
@@ -50,7 +50,7 @@ Trains and compares two models on the metafile with a held-out test set:
 
 These are realistic discrimination levels for bureau + banking scorecards. The winning model scores every applicant (`data/processed/metafile_scored.parquet`) and is saved to `models/credit_model.joblib`.
 
-Observed default rate by predicted-PD decile (2,000 applicants, ~18% base rate) rises monotonically from **6%** (decile 1) to **54%** (decile 10) — the model rank-orders risk correctly.
+Observed default rate by predicted-PD decile (2,000 applicants, ~18% base rate) rises monotonically from **6%** (decile 1) to **54%** (decile 10) - the model rank-orders risk correctly.
 
 ### 5) SQL risk analytics (DuckDB on Parquet)
 A query pack over the scored metafile:
@@ -90,7 +90,7 @@ python -m pytest        # 32 unit tests
 ruff check src tests    # lint
 ```
 
-CI runs lint, tests and a 50-applicant end-to-end smoke run on Python 3.11–3.13 (see `.github/workflows/ci.yml`).
+CI runs lint, tests and a 50-applicant end-to-end smoke run on Python 3.11-3.13 (see `.github/workflows/ci.yml`).
 
 ---
 
@@ -155,4 +155,4 @@ Both the rule-based bands and the model PD rank-order observed defaults monotoni
 
 ## Disclaimer
 
-All data is synthetic and all policies/models are illustrative — this is a data engineering portfolio project, not a real credit policy.
+All data is synthetic and all policies/models are illustrative - this is a data engineering portfolio project, not a real credit policy.
